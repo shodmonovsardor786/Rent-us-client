@@ -137,7 +137,9 @@ const Classifieds = () => {
 				if(data.data) {
 					alert('They will call you')
 					setCloseModal(true)
-					setOrderBtn(false)
+					setTimeout(() => {
+						setOrderBtn(false)
+					}, 60000)
 				}
 				if(data.data === null)  {
 					window.location.pathname = '/login'

@@ -30,6 +30,7 @@ const Create = () => {
 
     useEffect(() => {
         ;(async () => {
+            setClassUsername('')
             if(username && username.length < 5) {
                 setClassUsername('warning')
                 setMessage('Username must be greater than 5')
@@ -95,7 +96,7 @@ const Create = () => {
     useEffect(() => {
         ;(async () => {
             setClassNumber('')
-            if(number && number.length > 9 && number.length < 9) {
+            if(number && number.length > 9) {
                 setClassNumber('warning')
                 setMessage('Only AB AAA BB CC')
                 setTimeout(() => setMessage(''), 2000)
@@ -141,7 +142,6 @@ const Create = () => {
                     if(data.data) {
                         setClassVerify('success')
                         setMessage(data.message)
-                        setTimeout(() => setMessage(''), 1000);
                         setButton({disabled: false})
                     }
                     else {

@@ -53,8 +53,8 @@
     width: 100%;
     color: red;
     text-align: center;
-    text-shadow: 0 0 1px grey;
-    text-decoration: underline;
+    font-weight: bold;
+    text-shadow: 0 2px 5px black;
 }
 
 .create {

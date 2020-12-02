@@ -1,0 +1,21 @@
+.header_component {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    font-style: italic;
+    color: snow;
+    background: #2bb6e5;
+    box-shadow: 0 5px 5px #555;
+    position: relative;
+    z-index: 2;
+}
+
+.header_component .title {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    font-style: normal;
+    text-shadow: 0 0 5px black;
+}

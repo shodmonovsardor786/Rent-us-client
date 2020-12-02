@@ -1,0 +1,50 @@
+.filter_list {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 30px;
+    margin: 0;
+    list-style-type: none;
+    background: #fff;
+    box-shadow: 0 5px 5px #111;
+    user-select: none;
+    z-index: 1;
+    transition: .4s;
+}
+
+.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.filter_item {
+    width: 100%;
+    margin: 0 10px;
+}
+
+form .filter_item label {
+    font-size: 14px;
+    text-shadow: none;
+    color: #111;
+}
+
+.filter_item 
+.filter_select, 
+.filter_input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter_item_li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

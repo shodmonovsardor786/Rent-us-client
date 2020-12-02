@@ -1,0 +1,94 @@
+.create_container {
+    width: 100%;
+    height: 100vh;
+    padding: 40px 0;
+}
+
+.create_container #tilt {
+    width: 30% !important;
+    height: 90vh;
+    margin: 0 auto !important;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fed238 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 5px black;
+}
+
+.create_container h1 {
+    margin: 0 auto;
+    color: snow;
+    text-shadow: 0 0 5px black;
+}
+
+form label {
+    font-size: 14px;
+    margin-top: 15px;
+    color: snow;
+}
+
+.create_container input {
+    padding: 10px;
+    margin: 2px auto;
+    border-color: #aaa;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+    border: 3px solid transparent;
+}
+
+.create_container .warning {
+    border: 3px solid #f8453f;
+}
+
+.create_container .success {
+    border: 3px solid #2bb6e5;
+}
+
+.message {
+    width: 100%;
+    color: red;
+    text-align: center;
+    text-shadow: 0 0 1px grey;
+    text-decoration: underline;
+}
+
+.loginLink {
+    margin: 0 auto;
+    margin-top: auto;
+    font-size: 20px;
+    color: #f8453f;
+    text-decoration: none;
+}
+
+.loginLink:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.createBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+}
+
+.createBtn:disabled {
+    box-shadow: none;
+}
+
+
+.createBtn p {
+    margin: 0;
+    margin-right: 5px;
+}

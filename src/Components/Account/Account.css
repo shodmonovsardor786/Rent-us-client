@@ -1,0 +1,466 @@
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    font-style: italic;
+    color: snow;
+    background: linear-gradient(to right, skyblue, #2bb6e5, skyblue);
+
+}
+
+.title {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    text-shadow: 0 0 5px black;
+}
+
+.exitAccount,
+.new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: snow;
+    background-color: #2bb6e5;
+    box-shadow: 0 0 5px snow;
+}
+
+.logout {
+    margin-right: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2bb6e5;
+    color: snow;
+    box-shadow: 0 0 5px snow;
+}
+
+.empty-classifieds {
+    margin: 150px auto;
+    font-style: italic;
+    color: grey;
+    letter-spacing: 5px;
+}
+
+.my_classifieds_list {
+    margin: 0;
+    margin-top: 50px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+
+.my_classified_item {
+    position: relative;
+    width: 49%;
+    padding: 0;
+    margin: 10px 7px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+.my_classified_main {
+    display: flex;
+}
+
+.my_img-wrapper {
+    width: 450px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.my_img-wrapper img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.my_img-wrapper div {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.my_img-wrapper:hover div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.my_img-wrapper span {
+    color: snow;
+    font-size: 50px;
+}
+
+.my_classified_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.my_classified_info div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.my_cls_header {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.my_classified_title {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 2px;
+}
+
+.my_classified_price {
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.my_classified-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.my_classified-info p {
+    margin: 10px;
+    margin-left: 0;
+    padding: 8px;
+    color: snow;
+    background: #2bb6e5;
+    text-shadow: 0 0 2px black;
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: 0 0 5px grey;
+    background: #2bb6e5;
+}
+
+.my_time {
+    font-size: 12px;
+    margin: 0;
+    color: #aaa;
+}
+
+.my_classified_addres {
+    font-weight: bold;
+    margin: 0;
+}
+
+.editModal {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+.none {
+    display: none;
+}
+
+.my_commentBtn,
+.edit,
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;    
+    color: #2bb6e5;
+}
+
+.my_commentBtn {
+    margin-left: auto;
+}
+
+.edit {
+    color: springgreen;
+}
+
+.delete {
+    color: lightcoral;
+}
+
+.my_commentBtn:active,
+.edit:active,
+.delete:active {
+    color: red;
+}
+
+
+
+/* ////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////// */
+
+
+.images_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.images_modal ul {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    list-style-type: none;
+}
+
+.images_modal > div {
+    width: 500px;
+    height: 500px;
+}
+
+.images_modal img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.images_modal .image_btn {
+    box-shadow: 0 0 10px black;
+}
+
+
+/* ////////////// */
+/* MODAL */
+/* ////////////// */
+
+.my_modal_content {
+    position: relative;
+    width: 50%;
+    min-height: 95vh;
+    margin: 10px auto 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow:  0 0 10px black;
+    display: flex;
+}
+
+.my_content--wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_img {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.edit_img .fileUpload {
+    width: 30%;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 60px;
+    background-color: #eee;
+}
+
+.edit_img input {
+    display: none;
+}
+
+.edit_classified_info--modal {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_cls_header--modal {
+    width: 100%;
+    display: flex;
+}
+
+.edit_classified_price {
+    width: 40%;
+    margin: 0 5px;
+}
+
+.edit_selects__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.edit_selects__list li {
+    width: 49%;
+    margin: 5px 0;
+    list-style-type: none;
+}
+
+.edit_selects__list 
+select,
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.edit_classified_body {
+    width: 100%;
+    min-height: 220px;
+    resize: none;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.edit_classified_footer {
+    margin-top: auto;
+    display: flex;
+}
+
+.edit_classified_footer button {
+    padding: 10px;
+    border: none;
+    color: snow;
+    text-shadow: 0 0 2px black;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+}
+
+.edit_ok {
+    flex-grow: 1;
+    background: linear-gradient(to right, skyblue, #2bb6e5, skyblue);
+    margin-right: 10px;
+}
+
+.edit_modal-cancel {
+    background-color: #f8453f;
+}
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+.openComments {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+.openComments > div {
+    position: relative;
+    width: 40%;
+    height: 95vh;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.my_comments_list {
+    height: 85vh;
+    overflow: auto;
+    padding: 0 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+
+.no_comment {
+    margin-top: 100px;
+    letter-spacing: 10px;
+    font-style: italic;
+    color: #aaa;
+    font-weight: bold;
+    text-align: center;
+    list-style-type: none;
+}
+
+.my_comments {
+    padding: 5px;
+    margin: 0 0 15px;
+    border-radius: 5px;
+    list-style-type: none;
+    background-color: #fff;
+    box-shadow: 0 5px 5px #aaa;
+    background: #fff;
+}
+
+.my_comments:last-child {
+    margin-bottom: 5px;
+}
+
+.my_comments p {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.my_comments .user_username {
+    color: #f8453f;
+    font-weight: bold;
+    margin-bottom: 2px !important;
+}
+
+.comments_close {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    border: none;
+    color: snow;
+    text-shadow: 0 0 2px black;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f8453f;
+    outline: none;
+}

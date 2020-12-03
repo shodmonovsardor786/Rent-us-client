@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FaTimesCircle, FaUserPlus } from 'react-icons/fa'
+import { FaTimesCircle } from 'react-icons/fa'
 import axios from 'axios'
 import './Create.css'
 import Tilt from 'react-vanilla-tilt'
@@ -19,7 +19,7 @@ const Create = () => {
     const [ classUsername, setClassUsername ] = useState('')
     const [ classPassword, setClassPassword ] = useState('')
     const [ classNumber, setClassNumber ] = useState('')
-    const [ classVerify, setClassVerify ] = useState('')
+    const [ verifyModal, setVerifyModal ] = useState('none')
 
     useEffect(() => {
         const token = window.localStorage.getItem('access_token')
@@ -115,58 +115,58 @@ const Create = () => {
             }
         })()
     }, [number])
-    
-    useEffect(() => {
-        ;(async () => {
-            if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
-                const { data } = await axios.post(`${ADDRESS}/create`, { 
-                    username: username.trim(), 
-                    password: password.trim(), 
-                    email: email.trim(), 
-                    number: number.trim() 
-                })
-                setMessage(data.message)
-            }
-        })()
-    }, [classUsername, classPassword, classEmail, classNumber, username, password, email, number, setMessage])
-    
-    useEffect(() => {
-        ;(async () => {
-            if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
-                setClassVerify('')
-                setButton({disabled: true})
-                if(verify.length === 6) {
-                    const { data } = await axios.post(`${ADDRESS}/create`, { 
-                        verify: verify.trim()
-                    })
-                    if(data.data) {
-                        setClassVerify('success')
-                        setMessage(data.message)
-                        setButton({disabled: false})
-                    }
-                    else {
-                        setButton({disabled: true})
-                        setClassVerify('warning')
-                        setMessage('Wrong code')
-                    }
-                }
-            }
-        })()
-    }, [classUsername, classPassword, classEmail, classNumber, username, password, email, number, verify, setMessage])
+        
+    // useEffect(() => {
+    //     ;(async () => {
+    //         if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
+    //             setClassVerify('')
+    //             setButton({disabled: true})
+    //             if(verify.length === 6) {
+    //                 const { data } = await axios.post(`${ADDRESS}/create`, { 
+    //                     verify: verify.trim()
+    //                 })
+    //                 if(data.data) {
+    //                     setClassVerify('success')
+    //                     setMessage(data.message)
+    //                     setButton({disabled: false})
+    //                 }
+    //                 else {
+    //                     setButton({disabled: true})
+    //                     setClassVerify('warning')
+    //                     setMessage('Wrong code')
+    //                 }
+    //             }
+    //         }
+    //     })()
+    // }, [classUsername, classPassword, classEmail, classNumber, username, password, email, number, verify, setMessage])
 
     useEffect(() => {
         ;(async () => {
-            if(button.click) {
-                if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
+            if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
+                setButton({disabled: false})
+                if(button.click) {
                     const { data } = await axios.post(`${ADDRESS}/create`, {
-                        button: true,
                         username: username.trim(),
                         password: password.trim(),
                         number: number.trim(),
                         email: email.trim(),
-                        verify: verify.trim()
                     })
-                    console.log(data)
+
+                    if(data) {
+                        setVerifyModal('verify_modal')
+                        setMessage(data.message)
+                    }
+
+                }
+                if(verify.trim().length === 6) {
+                    const { data } = await axios.post(`${ADDRESS}/create`, { verify: verify.trim()})
+                    if(data.data) {
+                        window.localStorage.setItem('access_token', data.access_token)
+                        window.location.pathname = "/account"
+                    } 
+                    else {
+                        setMessage(data.message)
+                    }
                 }
             }
         })()
@@ -197,16 +197,22 @@ const Create = () => {
 
                         <label htmlFor="email">Email</label>
                         <input className={classEmail} onKeyUp={e => {setEmail(e.target.value)}} id="email" type="mail" placeholder="Email"/>
-
-                        <label htmlFor="verify">Verify code</label>
-                        <input className={classVerify} onKeyUp={e => {setVerify(e.target.value)}} id="verify" type="number" autoComplete="false" placeholder="Verify code" required/>
-
+                     
                         <p className="message">{message}</p>
 
                         <Link className="loginLink" to="/login">Sign In</Link>
-                        <button disabled={button.disabled} onClick={e => buttonClick(e)} className="createBtn"><p>Create</p><FaUserPlus/></button>
+                        <button disabled={button.disabled} onClick={e => buttonClick(e)} className="createBtn">OK</button>
                     </Tilt>
                 </form>
+            </div>
+            <div className={verifyModal}>
+                <div className="verify_content">
+                    <form>
+                        <h1>Verify code</h1>
+                        <input onKeyUp={e => setVerify(e.target.value)} type="number" placeholder="code..."/>
+                        <p className="message">{message}</p>
+                    </form>
+                </div>
             </div>
         </>
     )

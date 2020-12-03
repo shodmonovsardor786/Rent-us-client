@@ -1,14 +1,14 @@
 .create_container {
     width: 100%;
     height: 100vh;
-    padding: 40px 0;
+    padding: 50px 0;
 }
 
 .create_container #tilt {
-    width: 30% !important;
-    height: 90vh;
+    width: 35% !important;
+    height: 85vh;
     margin: 0 auto !important;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -91,4 +91,36 @@ form label {
 .createBtn p {
     margin: 0;
     margin-right: 5px;
+}
+
+.verify_modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.verify_content {
+    width: 20%;
+    height: 40%;
+    margin: 220px auto;
+    background-color: #2bb6e5;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.verify_content h1 {
+    margin: 0;
+    margin-bottom: 30px;
+    color: snow;
+    font-size: 20px;
+    font-weight: normal;
+    text-shadow: 0 0 5px black;
+}
+
+.verify_content input {
+    border: none;
+    border-radius: 5px;
 }

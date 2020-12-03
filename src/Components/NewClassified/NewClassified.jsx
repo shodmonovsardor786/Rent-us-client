@@ -64,7 +64,7 @@ const NewClassified = () => {
 						body: body.value,
 						images: [one.value ? one.value : null, two.value ? two.value : null, three.value ? three.value : null, four.value ? four.value : null, five.value ? five.value : null, six.value ? six.value : null]
 					}
-					const { data } = await axios.post(`${ADDRESS}`, { classified }, { headers } )
+					const { data } = await axios.post(`${ADDRESS}/new`, { classified }, { headers } )
 					if(data) {
 						window.location.pathname = '/'
 						setBtn(false)

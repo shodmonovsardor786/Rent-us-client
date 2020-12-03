@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from "react"
 
 const FilterContext = createContext()
 
-const ADDRESS = 'http://localhost:4000'
+const ADDRESS = 'http://192.168.1.222:4000'
 
 const FilterProvider = ({children}) => {
 

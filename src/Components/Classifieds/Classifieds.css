@@ -7,62 +7,102 @@
     color: #ccc;
 }
 
-.account {
-    position: absolute;
-    right: 5px;
-    top: 40px;
+.links {
+    position: fixed;
+    top: 75px;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account, .add {
     width: 55px;
     height: 55px;
+    font-size: 25px;
+    margin: 15px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:  #2bb6e5;
-    color: snow;
-    font-size: 25px;
     border-radius: 50%;
+    background-color: #fff;
+    color: #2bb6e5;
+    box-shadow: 0 5px 5px -2px #aaa;
     z-index: 8888;
-    box-shadow: 0 0 5px black;
 }
 
 .classifieds_list {
-    margin: 0;
-    margin-top: 120px;
-    padding: 10px;
+    margin: 20px;
+    margin-left: calc(13%);
+    margin-top: 90px;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    animation-name: width-f;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+.classifieds_list--wd {
+    animation-name: width;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes width-f {
+    0% {
+        margin-left: 0%;
+    }
+    100% {
+        margin-left: 13%;
+    }
+}
+
+@keyframes width {
+    0% {
+        margin-left: 13%;
+    }
+    100% {
+        margin-left: 0%;
+    }
 }
 
 .classified_item {
     position: relative;
-    width: 32%;
-    padding: 0 !important;
-    margin: 10px !important;
+    width: 80%;
+    padding: 0;
+    margin: 10px auto;
     background-color: #fff;
-    border: 1px solid #aaa;
+    border: 1px solid #eee;
     overflow: hidden;
-    border-radius: 10px !important;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.classified_item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px #ccc;
+}
+
+.classified_main {
+    display: flex;
 }
 
 .img-wrapper {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-}
-
-.img-wrapper .tilt {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    border-top-left-radius: 10px !important;
-    border-top-right-radius: 10px !important;
+    width: 50%;
+    height: 220px;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
     overflow: hidden;
 }
 
 .img-wrapper > div {
     width: 100%;
-    height: 300px;
+    height: 220px;
     display: block;
 }
 
@@ -95,6 +135,7 @@
     margin: 0;
     padding: 0;
     letter-spacing: 2px;
+    font-size: 25px;
 }
 
 .classified_price {
@@ -113,14 +154,15 @@
     font-weight: bold;
     border-radius: 2px;
     font-size: 12px;
-    box-shadow: 0 0 10px grey;
-    border-radius: 10px;
+    box-shadow: 0 5px 5px -2px #ccc;
+    border-radius: 5px;
     background: #2bb6e5;
 }
 
 .classified_addres {
     margin: 0;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .classified_time {

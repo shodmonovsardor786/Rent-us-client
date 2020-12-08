@@ -115,51 +115,24 @@ const Create = () => {
             }
         })()
     }, [number])
-        
-    // useEffect(() => {
-    //     ;(async () => {
-    //         if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
-    //             setClassVerify('')
-    //             setButton({disabled: true})
-    //             if(verify.length === 6) {
-    //                 const { data } = await axios.post(`${ADDRESS}/create`, { 
-    //                     verify: verify.trim()
-    //                 })
-    //                 if(data.data) {
-    //                     setClassVerify('success')
-    //                     setMessage(data.message)
-    //                     setButton({disabled: false})
-    //                 }
-    //                 else {
-    //                     setButton({disabled: true})
-    //                     setClassVerify('warning')
-    //                     setMessage('Wrong code')
-    //                 }
-    //             }
-    //         }
-    //     })()
-    // }, [classUsername, classPassword, classEmail, classNumber, username, password, email, number, verify, setMessage])
 
     useEffect(() => {
         ;(async () => {
             if(classUsername === 'success' && classPassword === 'success' && classEmail === 'success' && classNumber === 'success') {
                 setButton({disabled: false})
                 if(button.click) {
+                    setVerifyModal('verify_modal')
                     const { data } = await axios.post(`${ADDRESS}/create`, {
                         username: username.trim(),
                         password: password.trim(),
                         number: number.trim(),
                         email: email.trim(),
                     })
-
-                    if(data) {
-                        setVerifyModal('verify_modal')
-                        setMessage(data.message)
-                    }
-
+                    setMessage(data.message)
                 }
-                if(verify.trim().length === 6) {
-                    const { data } = await axios.post(`${ADDRESS}/create`, { verify: verify.trim()})
+
+                if (verify.trim().length === 6) {
+                    const { data } = await axios.post(`${ADDRESS}/create`, { verify: verify.trim(), username: username.trim()})
                     if(data.data) {
                         window.localStorage.setItem('access_token', data.access_token)
                         window.location.pathname = "/account"

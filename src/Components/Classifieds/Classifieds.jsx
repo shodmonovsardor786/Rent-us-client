@@ -5,18 +5,20 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { useFilter } from '../Context'
 import { ADDRESS } from '../Context'
-import { FaComment, FaEye, FaPaperPlane, FaUser } from 'react-icons/fa'
+import { FaComment, FaEye, FaPaperPlane, FaUser, FaPlus } from 'react-icons/fa'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
-import Tilt from 'react-vanilla-tilt'
 
 const Classifieds = () => {
 
-	const [state] = useFilter()
-	const [classifieds, setClassifieds] = useState({data: [], loading: false, modal: null, comments: null})
-	const [closedModal, setCloseModal] = useState(false)
-	const [closedCommentsModal, setCloseCommentsModal] = useState(false)
 	const [ link, setLink] = useState("/account")
+	const [ linkNew, setLinkNew] = useState("/new")
+
+	const [	state, filter] = useFilter()
+	const [classifiedsClass, setClassifiedsClass] = useState('classifieds_list');
+	const [	classifieds, setClassifieds] = useState({data: [], loading: false, modal: null, comments: null})
+	const [	closedModal, setCloseModal] = useState(false)
+	const [	closedCommentsModal, setCloseCommentsModal] = useState(false)
 	const [ commentInput, setCommentInput] = useState(false)
 	const [ newComment, setNewComment] = useState('')
 	const [ commentInputBtn, setCommentInputBtn] = useState(false)
@@ -32,12 +34,24 @@ const Classifieds = () => {
 			if(data.data === null)  {
 				window.localStorage.removeItem('access_token')
 				setLink("/login")
+				setLinkNew("/login")
 			}
 			else {
 				setCommentInput(true)
 			}
 		})()
     }, [setLink])
+
+	useEffect(() => {
+		;(async () => {
+			if(filter) {
+				setClassifiedsClass('classifieds_list classifieds_list--wd')
+			}
+			else {
+				setClassifiedsClass('classifieds_list')
+			}
+		})()
+	}, [filter])
 
 	useEffect(() => {
 		;(async () => {
@@ -156,46 +170,46 @@ const Classifieds = () => {
   return (
     <>
     {  classifieds.data.length === 0 ? <p className="empty-classified">Empty</p> : null } 
-	<Link to={link} className="account"><FaUser/></Link>
-	
-    <ul className="classifieds_list">
-    {
-        classifieds.data && classifieds.data.map((cls) => (
-			<li className="classified_item" key={cls.classified_id}>
-				<div className="classified_main">
-						<div className="img-wrapper">
-						<Tilt className="tilt">
-							{	
-								classifieds.images && classifieds.images.map(img => (
-									img.classified_id === cls.classified_id &&
-										<img key={img.image_id} src={'http://localhost:4000/images/' + img.image_path} alt="classified_image" height="300"/>
-									))
-							}
-							</Tilt>
+	<div className="links">
+		<Link to={link} className="account"><FaUser/></Link>
+		<Link to={linkNew} className="add"><FaPlus/></Link>
+	</div>
 
+	<ul className={classifiedsClass}>
+		{
+			classifieds.data && classifieds.data.map((cls) => (
+				<li className="classified_item" key={cls.classified_id}>
+					<div className="classified_main">
+							<div className="img-wrapper">
+								{	
+									classifieds.images && classifieds.images.map(img => (
+										img.classified_id === cls.classified_id &&
+											<img key={img.image_id} src={`${ADDRESS}/images/` + img.image_path} alt="classified_image" height="300"/>
+										))
+								}
+							</div>
+							<div className="classified_info">
+								<div className="classified_header">
+									<h1 className="classified_title">{cls.classified_title}</h1>
+									<p className="classified_price">{cls.classified_price} $</p>
+								</div>
+								<div className="classified_mini-info">
+									<p>Rooms: {cls.classified_room > 6 ? 'more than 6' : cls.classified_room}</p>
+									<p>Type: {cls.classified_type === 1 ? "House" : "Apertmant"}</p>
+									<p>Square: {cls.classified_square}</p>
+								</div>
+								<p className="classified_addres">{cls.classified_addres}</p>
+								<div className="classified_footer">
+									<p className="classified_time">{moment(cls.created_at).fromNow()}</p>
+									<p className="classified_comments" onClick={() => {openModalComments(cls.classified_id)}}><FaComment/></p>
+									<p className="classified_view" onClick={() => {openModal(cls.classified_id)}}><FaEye/></p>
+								</div>
+							</div>
 						</div>
-						<div className="classified_info">
-							<div className="classified_header">
-								<h1 className="classified_title">{cls.classified_title}</h1>
-								<p className="classified_price">{cls.classified_price} $</p>
-							</div>
-							<div className="classified_mini-info">
-								<p>Rooms: {cls.classified_room}</p>
-								<p>Type: {cls.classified_type === 1 ? "House" : "Apertmant"}</p>
-								<p>Square: {cls.classified_square}</p>
-							</div>
-							<p className="classified_addres">{cls.classified_addres}</p>
-							<div className="classified_footer">
-								<p className="classified_time">{moment(cls.created_at).fromNow()}</p>
-								<p className="classified_comments" onClick={() => {openModalComments(cls.classified_id)}}><FaComment/></p>
-								<p className="classified_view" onClick={() => {openModal(cls.classified_id)}}><FaEye/></p>
-							</div>
-						</div>
-					</div>
-          </li>
-      ))
-    }
-    </ul>
+			</li>
+		))
+		}
+	</ul>
 
 	{
 		classifieds.comments &&
@@ -249,7 +263,7 @@ const Classifieds = () => {
 						<div className="modal_info">
 							<p>Region: {classifieds.modal.region_name}</p>
 							<p>District: {classifieds.modal.district_name}</p>
-							<p>Rooms: {classifieds.modal.classified_room}</p>
+							<p>Rooms: {classifieds.modal.classified_room > 6 ? 'more than 6' : Classifieds.modal.classified_room}</p>
 							<p>Type: {classifieds.modal.classified_type === 1 ? "House" : "Apertmant"}</p>
 							<p>Square: {classifieds.modal.classified_square}</p>
 							<p>Addres: {classifieds.modal.classified_addres}</p>

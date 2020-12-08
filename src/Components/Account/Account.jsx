@@ -201,7 +201,7 @@ const Account = () => {
 									<div className="my_classified-info">
 										<p>Region: {cls.region_name}</p>
 										<p>District: {cls.district_name}</p>
-										<p>Rooms: {cls.classified_room}</p>
+										<p>Rooms: {cls.classified_room > 6 ? 'more than 6' : cls.classified_room}</p>
 										<p>Type: {cls.classified_type === 1 ? "House" : "Apertmant"}</p>
 										<p>Square: {cls.classified_square}</p>
 									</div>

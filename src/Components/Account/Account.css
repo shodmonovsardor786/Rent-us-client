@@ -31,9 +31,9 @@
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 30px;
-    color: snow;
     background-color: #2bb6e5;
-    box-shadow: 0 0 5px black;
+    color: #fff;
+    box-shadow: 0 5px 5px -5px black;
 }
 
 .logout {
@@ -42,8 +42,8 @@
     border: none;
     border-radius: 10px;
     background-color: #2bb6e5;
-    color: snow;
-    box-shadow: 0 0 5px black;
+    color: #fff;
+    box-shadow: 0 5px 5px -5px black;
 }
 
 .empty-classifieds {
@@ -71,9 +71,9 @@
     background-color: #fff;
     border: 1px solid #aaa;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px #ccc;
 }
-
 
 .my_classified_main {
     display: flex;
@@ -160,9 +160,9 @@
     color: snow;
     background: #2bb6e5;
     text-shadow: 0 0 2px black;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 12px;
-    box-shadow: 0 0 5px grey;
+    box-shadow: 0 5px 5px -2px #ccc;
     background: #2bb6e5;
 }
 

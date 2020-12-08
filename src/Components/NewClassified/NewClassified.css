@@ -4,12 +4,12 @@
     padding-top: 20px;
 }
 .post_content .form{
-    width: 80%;
+    width: 60%;
     height: auto;
     margin: 0 auto;
     background-color: #fff;
-    background: rgb(212, 212, 212);
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px -5px black;
 }
 
 .post--wrapper {
@@ -24,22 +24,23 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 5px 0;
+    padding: 5px 10px;
 }
 
 .post_img .fileUpload {
     width: 30%;
     height: 110px;
-    margin: 5px auto;
+    margin: 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 40px;
     padding: 0;
-    color: #aaa;
+    color: #ccc;
     background-color: #eee;
-    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .img {
@@ -93,7 +94,7 @@
 .post_header input {
     border-color: #aaa;
     background-color: #eee;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .post_title {
@@ -113,7 +114,7 @@
     width: 20%;
     padding: 10px;
     background-color: #eee;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .post_selects__list {
@@ -140,7 +141,7 @@ select,
     border-color: #aaa;
     background-color: #eee;
     border: 1px solid #aaa;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .post_selects__list select {
@@ -155,7 +156,7 @@ select,
     margin-bottom: 10px;
     border: 1px solid #aaa;
     background-color: #eee;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .post_footer {

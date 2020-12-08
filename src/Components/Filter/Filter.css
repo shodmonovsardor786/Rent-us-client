@@ -1,29 +1,44 @@
 .filter_list {
-    width: 100%;
-    position: absolute;
+    width: 20%;
+    position: fixed;
+    top: 75px;
+    height: 95vh;
     display: flex;
     align-items: center;
-    padding: 20px;
-    padding-bottom: 30px;
+    flex-direction: column;
     margin: 0;
+    padding: 15px;
     list-style-type: none;
     background: #fff;
     box-shadow: 0 5px 5px #111;
     user-select: none;
     z-index: 1;
-    transition: .4s;
-}
-
-.fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
+    transition: .5s;
 }
 
 .filter_item {
     width: 100%;
-    margin: 0 10px;
+    margin: 10px;
+}
+
+.open_close_filter {
+    margin-left: auto;
+}
+
+.close_filter {
+    transform: translateX(-85%);
+}
+
+.open_close_filter span {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 form .filter_item label {

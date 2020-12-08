@@ -2,14 +2,18 @@ import React, { createContext, useState, useContext } from "react"
 
 const FilterContext = createContext()
 
-const ADDRESS = 'http://192.168.1.222:4000'
+//                 port ozgarmidi 4000
+const ADDRESS = 'http://localhost:4000'
 
 const FilterProvider = ({children}) => {
 
     const [state, setState] = useState()
+    const [filter, setFilter] = useState(false)
+
     
     const value = {
-        state, setState
+        state, setState,
+        filter, setFilter
     }
     
     return (
@@ -23,8 +27,8 @@ const FilterProvider = ({children}) => {
     )
 }
 const useFilter = (setterOnly) => {
-    const {state, setState} = useContext(FilterContext)
-    return setterOnly ? [setState] : [state, setState]
+    const {state, setState, filter, setFilter} = useContext(FilterContext)
+    return setterOnly ? [setState, filter, setFilter] : [state, filter]
 } 
     
 export {

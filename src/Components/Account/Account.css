@@ -243,15 +243,15 @@
 
 .images_modal ul {
     position: relative;
-    width: 500px;
-    height: 500px;
+    width: 40%;
+    padding: 0 !important;
     margin: 100px auto;
     list-style-type: none;
 }
 
 .images_modal > div {
     width: 500px;
-    height: 500px;
+    height: 400px;
 }
 
 .images_modal img {
@@ -492,6 +492,9 @@ input {
     .openComments > div {
         width: 60%;
     }
+    .images_modal ul {
+        width: 50%;
+    }
 }
 
 @media (max-width: 900px) {
@@ -506,9 +509,18 @@ input {
         padding: 10px;
         margin: 0;
     }
+
     .exitAccount,
     .new {
         display: none;
+    }
+
+    .images_modal ul {
+        width: 60%;
+    }
+
+    .images_modal img {
+        height: 300px;
     }
     
 }
@@ -533,5 +545,15 @@ input {
     }
     .openComments > div {
         width: 80%;
+    }
+    
+    .images_modal ul {
+        width: 70%;
+    }
+}
+
+@media (max-width: 500px) {
+    .images_modal > div {
+        width: 40% !important;
     }
 }

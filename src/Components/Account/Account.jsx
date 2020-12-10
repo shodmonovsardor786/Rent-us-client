@@ -105,7 +105,7 @@ const Account = () => {
 	
 	function imagesModal(index) {
 			;(async () => {
-			const { data } = await axios.post('http://localhost:4000', {index})
+			const { data } = await axios.post(`${ADDRESS}`, {index})
 				if(data.images) {
 					setClassifieds({data: classifieds.data, modal: classifieds.modal, images: classifieds.images, modalImages: data.images})
 				}
@@ -136,7 +136,7 @@ const Account = () => {
 
 	function openModalComments(index) {
 		;(async () => {
-			const { data } = await axios.post('http://localhost:4000', {index})
+			const { data } = await axios.post(`${ADDRESS}`, {index})
 			setClassifieds({data: classifieds.data, comments: data.comments, commentIndex: index, images: classifieds.images})
 			setCloseCommentsModal(false)
 		})()
@@ -186,7 +186,7 @@ const Account = () => {
 										{
 											classifieds.images && classifieds.images.map(img => (
 												img.classified_id === cls.classified_id &&
-												<img key={img.image_id} src={'http://localhost:4000/images/' + img.image_path} alt="classified_image" width="300" height="250"/>
+												<img key={img.image_id} src={`${ADDRESS}/images/` + img.image_path} alt="classified_image" width="300" height="250"/>
 											))
 										}
 										<div onClick={e => imagesModal(cls.classified_id)}>
@@ -351,7 +351,7 @@ const Account = () => {
 						{ 
 							classifieds.modalImages.map(img => (
 								<li key={img.image_id}>
-									<img src={'http://localhost:4000/images/' + img.image_path} alt="img" width="500" height="500"/>
+									<img src={`${ADDRESS}/images/` + img.image_path} alt="img" width="500" height="500"/>
 								</li>
 							))
 						}

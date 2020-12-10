@@ -95,10 +95,15 @@
 
 @media (max-width: 1000px) {
     .login_container #tilt {
-    width: 50% !important;}
+        width: 50% !important;
+    }
 }
 
 @media (max-width: 600px) {
+    .login_container {
+        padding-top: 70px;
+    }
     .login_container #tilt {
-    width: 80% !important;}
+        width: 80% !important;
+    }
 }

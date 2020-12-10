@@ -136,6 +136,9 @@ form label {
 }
 
 @media (max-width: 600px) {
+    .create_container {
+        padding-top: 30px;
+    }
     .create_container #tilt {
         width: 80% !important;
     }

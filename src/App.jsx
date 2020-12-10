@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import Header from './Components/Header/Header'
 import Filter from './Components/Filter/Filter'
+import Menu from './Components/Menu/Menu'
 import Classifieds from './Components/Classifieds/Classifieds'
 import NewClassified from './Components/NewClassified/NewClassified'
 import Login from './Components/Login/Login'
@@ -17,10 +18,12 @@ function App() {
 				<Header/>
 				<Filter/>
 				<Classifieds/>
+				<Menu/>
 			</Route>
 			
 			<Route path="/account" exact>
 				<Account/>
+				<Menu/>
 			</Route>
 
 			<Route path="/login" exact>
@@ -33,6 +36,7 @@ function App() {
 
 			<Route path="/new" exact>
 				<NewClassified/>
+				<Menu/>
 			</Route>
 		</Switch>
 	</>

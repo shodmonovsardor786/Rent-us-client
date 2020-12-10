@@ -65,7 +65,7 @@
 
 .my_classified_item {
     position: relative;
-    width: 49%;
+    width: 48%;
     padding: 0;
     margin: 10px 7px;
     background-color: #fff;
@@ -80,7 +80,7 @@
 }
 
 .my_img-wrapper {
-    width: 450px;
+    width: 80%;
     height: 250px;
     overflow: hidden;
     position: relative;
@@ -469,4 +469,69 @@ input {
     border-radius: 5px;
     background-color: #f8453f;
     outline: none;
+}
+
+@media (max-width: 1200px) {
+    .my_classifieds_list {
+        margin-top: 90px;
+        padding-bottom: 80px;
+    }
+    .my_classified_item {
+        width: 45%;
+        margin: 20px auto 0;
+    }
+    .my_classified_main {
+        display: block;
+    }
+    .my_img-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .openComments > div {
+        width: 60%;
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        padding: 20px 10px;
+    }
+    .title {
+        text-align: left;
+        font-size: 25px;
+    }
+    .logout {
+        padding: 10px;
+        margin: 0;
+    }
+    .exitAccount,
+    .new {
+        display: none;
+    }
+    
+}
+
+@media (max-width: 800px) {
+    .my_classified_title {
+        font-size: 25px;
+    }
+    .my_classified-info {
+        margin: 10px 0;
+    }
+    .my_classified-info p {
+        margin: 5px;
+        padding: 5px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .my_classified_item {
+        width: 80%;
+    }
+    .openComments > div {
+        width: 80%;
+    }
 }

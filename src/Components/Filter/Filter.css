@@ -1,7 +1,7 @@
 .filter_list {
     width: 20%;
     position: fixed;
-    top: 75px;
+    top: 70px;
     height: 95vh;
     display: flex;
     align-items: center;
@@ -14,6 +14,7 @@
     user-select: none;
     z-index: 1;
     transition: .5s;
+    overflow: auto;
 }
 
 .filter_item {
@@ -26,7 +27,7 @@
 }
 
 .close_filter {
-    transform: translateX(-85%);
+    transform: translateX(-80%);
 }
 
 .open_close_filter span {
@@ -39,6 +40,25 @@
     font-size: 25px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .filter_list {
+        width: 40%;
+    }
+    .close_filter {
+        transform: translateX(-100%);
+    }
+
+    .open_close_filter {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .filter_list {
+        width: 60%;
+    }
 }
 
 form .filter_item label {

@@ -92,3 +92,13 @@
     margin: 0;
     margin-right: 5px;
 }
+
+@media (max-width: 1000px) {
+    .login_container #tilt {
+    width: 50% !important;}
+}
+
+@media (max-width: 600px) {
+    .login_container #tilt {
+    width: 80% !important;}
+}

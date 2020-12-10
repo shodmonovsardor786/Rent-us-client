@@ -45,7 +45,9 @@ const Classifieds = () => {
 	useEffect(() => {
 		;(async () => {
 			if(filter) {
-				setClassifiedsClass('classifieds_list classifieds_list--wd')
+				if(window.innerWidth > 900) {
+					setClassifiedsClass('classifieds_list classifieds_list--wd')
+				}
 			}
 			else {
 				setClassifiedsClass('classifieds_list')
@@ -247,7 +249,7 @@ const Classifieds = () => {
 							<Slide scale={0.1}>
 								{
 									classifieds.modalImg.map(img => (
-										<img key={img.image_id} src={'http://localhost:4000/images/' + img.image_path} alt="classified_image" height="300"/>
+										<img key={img.image_id} src={`${ADDRESS}/images/` + img.image_path} alt="classified_image" height="300"/>
 									))
 								}
 							</Slide>
@@ -263,7 +265,7 @@ const Classifieds = () => {
 						<div className="modal_info">
 							<p>Region: {classifieds.modal.region_name}</p>
 							<p>District: {classifieds.modal.district_name}</p>
-							<p>Rooms: {classifieds.modal.classified_room > 6 ? 'more than 6' : Classifieds.modal.classified_room}</p>
+							<p>Rooms: {classifieds.modal.classified_room > 6 ? 'more than 6' : classifieds.modal.classified_room}</p>
 							<p>Type: {classifieds.modal.classified_type === 1 ? "House" : "Apertmant"}</p>
 							<p>Square: {classifieds.modal.classified_square}</p>
 							<p>Addres: {classifieds.modal.classified_addres}</p>

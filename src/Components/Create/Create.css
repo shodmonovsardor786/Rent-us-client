@@ -124,3 +124,22 @@ form label {
     border: none;
     border-radius: 5px;
 }
+
+
+@media (max-width: 1000px) {
+    .create_container #tilt {
+        width: 50% !important;
+    }
+    .verify_content {
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .create_container #tilt {
+        width: 80% !important;
+    }
+    .verify_content {
+        width: 60%;
+    }
+}

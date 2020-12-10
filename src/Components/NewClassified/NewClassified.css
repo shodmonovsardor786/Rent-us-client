@@ -3,6 +3,7 @@
     height: 100vh;
     padding-top: 20px;
 }
+
 .post_content .form{
     width: 60%;
     height: auto;
@@ -44,7 +45,7 @@
 }
 
 .img {
-    margin: 0px auto;
+    margin: 0;
     width: 30%;
     padding: 0;
     display: flex;
@@ -192,4 +193,18 @@ select,
     font-weight: bold;
     text-align: center;
     background-color: #f05454;
+}
+
+
+@media (max-width: 900px) {
+    .post_content {
+        padding: 0 0 70px;
+    }
+    .post_content .form{
+        width: 95%;
+        box-shadow: 0 0 5px black;
+    }
+    .cancel {
+        display: none;
+    }
 }

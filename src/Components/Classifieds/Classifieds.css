@@ -18,6 +18,7 @@
     align-items: center;
 }
 
+
 .account, .add {
     width: 55px;
     height: 55px;
@@ -34,7 +35,6 @@
 }
 
 .classifieds_list {
-    margin: 20px;
     margin-left: calc(13%);
     margin-top: 90px;
     padding: 0;
@@ -457,4 +457,58 @@
     border-radius: 5px;
     background-color: #f8453f;
     outline: none;
+}
+
+@media (max-width: 1200px) {
+    .classified_content__modal {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .comments {
+        width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
+    .classifieds_list {
+        margin-left: 0 !important;
+        padding: 0 0 50px;
+    }
+
+    .links {
+        display: none;
+    }
+    .classified_content__modal {
+        width: 70%;
+        margin-top: 30px;
+        min-height: 85vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .classified_main {
+        display: block;
+    }
+
+    .img-wrapper {
+        width: 100%;
+    }
+
+    .classified_content__modal {
+        width: 85%;
+    }
+
+    .comments {
+        width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .classified_content__modal {
+        margin: 10px auto;
+        width: 95%;
+        height: 95vh;
+    }
 }

@@ -136,9 +136,10 @@ const Create = () => {
                     if(data.data) {
                         window.localStorage.setItem('access_token', data.access_token)
                         window.location.pathname = "/account"
-                    } 
+                    }
                     else {
                         setMessage(data.message)
+                        setTimeout(() => setMessage(''), 1000);
                     }
                 }
             }
@@ -148,6 +149,17 @@ const Create = () => {
     function buttonClick(e) {
         e.preventDefault()
         return setButton({disabled: true, click: true})
+    }
+
+    function deleteUser() {
+        ;(async () => {
+            const { data } = await axios.post(`${ADDRESS}/create`, {deleteUser: username.trim()})
+            if(data.data) {
+                setMessage('')
+                setVerifyModal('none')
+                setVerify('')
+            }
+        })()
     }
 
     return (
@@ -181,7 +193,9 @@ const Create = () => {
             <div className={verifyModal}>
                 <div className="verify_content">
                     <form>
+                        <span onClick={e => deleteUser(e)} className="exit exit_v"><FaTimesCircle/></span>
                         <h1>Verify code</h1>
+                        <p className="your_email">Your email <br/>{email}</p>
                         <input onKeyUp={e => setVerify(e.target.value)} type="number" placeholder="code..."/>
                         <p className="message">{message}</p>
                     </form>

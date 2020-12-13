@@ -6,7 +6,6 @@
 
 .create_container #tilt {
     width: 35% !important;
-    height: 85vh;
     margin: 0 auto !important;
     padding: 10px;
     display: flex;
@@ -103,12 +102,19 @@ form label {
 }
 
 .verify_content {
-    width: 20%;
-    height: 40%;
-    margin: 220px auto;
+    position: relative;
+    width: 40%;
+    margin: 100px auto;
     background-color: #2bb6e5;
     padding: 40px;
     border-radius: 10px;
+}
+
+.exit_v {
+    top: 0;
+    right: 0;
+    left: auto;
+    cursor: pointer;
 }
 
 .verify_content h1 {
@@ -118,6 +124,15 @@ form label {
     font-size: 20px;
     font-weight: normal;
     text-shadow: 0 0 5px black;
+}
+
+.verify_content .your_email {
+    color: snow;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 2px 2px black;
+    font-size: 12px;
 }
 
 .verify_content input {
@@ -131,7 +146,7 @@ form label {
         width: 50% !important;
     }
     .verify_content {
-        width: 40%;
+        width: 50%;
     }
 }
 
@@ -143,6 +158,12 @@ form label {
         width: 80% !important;
     }
     .verify_content {
-        width: 60%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 350px) {
+    .create_container #tilt {
+        width: 95% !important;
     }
 }

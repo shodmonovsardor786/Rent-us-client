@@ -15,7 +15,6 @@
 
 .login_container #tilt {
     width: 25% !important;
-    height: 60vh;
     margin: 0 auto !important;
     padding: 20px;
     display: flex;
@@ -105,5 +104,11 @@
     }
     .login_container #tilt {
         width: 80% !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .login_container #tilt {
+        width: 95% !important;
     }
 }

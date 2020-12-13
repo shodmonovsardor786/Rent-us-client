@@ -14,6 +14,7 @@ const Menu = () => {
 	
 	const [account, setAccount] = useState('/account')
 	const [newAdd, setNewAdd] = useState('/new')
+	const [classname, setClass] = useState()
 
 	useEffect(() => {
 		;(async () => {
@@ -30,12 +31,21 @@ const Menu = () => {
 		})()
 	}, [])
 
+	useEffect(() => {
+		if(window.location.pathname === '/') {
+			setClass(true)
+		}
+		else {
+			setClass(false)
+		}
+	}, [])
+
 	return (
 		<>
 		<div className="menu">
 			<div className="container">
-				<Link to="/" onClick={() => setFilter(!filter)} className="link"><HiMenuAlt1/></Link>
-				<Link className="link" to="/"><FaHome/></Link>
+				<Link to="/" onClick={() => setFilter(!filter)} className={classname ? 'link' : 'none'}><HiMenuAlt1/></Link>
+				<Link className={classname ? 'none' : 'link'} onClick={() => setFilter(false)} to="/"><FaHome/></Link>
 				<Link className="link" to={account}><FaUserCircle/></Link>
 				<Link className="link" to={newAdd}><FiPlusCircle/></Link>
 			</div>

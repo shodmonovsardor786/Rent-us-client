@@ -1,12 +1,3 @@
-.empty-classified {
-    margin-top: 280px;
-    text-align: center;
-    font-size: 50px;
-    font-style: italic;
-    letter-spacing: 20px;
-    color: #ccc;
-}
-
 .links {
     position: fixed;
     top: 75px;
@@ -135,6 +126,8 @@
     margin: 0;
     padding: 0;
     letter-spacing: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 25px;
 }
 
@@ -216,7 +209,7 @@
     box-shadow:  0 0 10px black;
     border-radius: 5px;
     display: flex;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .modal_wrapper {
@@ -463,6 +456,26 @@
     .classified_content__modal {
         width: 50%;
     }
+
+    .modal_img {
+        height: 200px;
+    }
+
+    .modal_img img {
+        height: 200px;
+    }
+
+    .modal_title {
+        font-size: 25px;
+    }
+    .modal_price {
+        font-size: 25px;
+    }
+
+    .modal_info p{
+        padding: 5px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 1000px) {
@@ -472,9 +485,15 @@
 }
 
 @media (max-width: 900px) {
+
     .classifieds_list {
         margin-left: 0 !important;
         padding: 0 0 50px;
+        margin-left: 0;
+    }
+
+    .img-wrapper {
+        width: 60%;
     }
 
     .links {
@@ -488,8 +507,20 @@
 }
 
 @media (max-width: 600px) {
+
     .classified_main {
         display: block;
+    }
+    
+    .classified_title {
+        font-size: 20px;
+    }
+    .classified_price {
+        font-size: 20px;
+    }
+    .classified_addres {
+        margin-top: 10px;
+        font-size: 12px;
     }
 
     .img-wrapper {
@@ -510,5 +541,24 @@
         margin: 10px auto;
         width: 95%;
         height: 95vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .classified_item {
+        width: 95%;
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 370px) {
+    .classified_mini-info {
+        flex-wrap: wrap;
+    }
+
+    .classified_mini-info p {
+        margin: 5px;
+        font-weight: normal;
+        margin-left: 0;
     }
 }

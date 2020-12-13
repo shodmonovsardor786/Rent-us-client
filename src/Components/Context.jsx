@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext } from "react"
 const FilterContext = createContext()
 
 //                 port ozgarmidi 4000
-const ADDRESS = ' http://10.240.60.240:4000'
+const ADDRESS = ' http://10.248.84.7:4000'
 
 const FilterProvider = ({children}) => {
 

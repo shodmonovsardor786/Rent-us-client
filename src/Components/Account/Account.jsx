@@ -23,7 +23,7 @@ const Account = () => {
 	const [addres, setAddres ] = useState('')
 	const [body, setBody ] = useState('')
 	const [editBtn, setEditBtn] = useState(false)
-	const [classifieds, setClassifieds] = useState({ data: [], comments: null, modal: null, images: [], modalImages: []})
+	const [classifieds, setClassifieds] = useState({ data: [], comments: null, modal: null, images: [], modalImages: false})
 	const [closedModal, setCloseModal] = useState(false)
 
 	const [closedCommentsModal, setCloseCommentsModal] = useState(false)

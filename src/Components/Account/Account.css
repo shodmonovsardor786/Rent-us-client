@@ -544,7 +544,7 @@ input {
         width: 80%;
     }
     .openComments > div {
-        width: 80%;
+        width: 95%;
     }
     
     .images_modal ul {
@@ -555,5 +555,17 @@ input {
 @media (max-width: 500px) {
     .images_modal > div {
         width: 40% !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .my_classified_item {
+        width: 100%;
+    }
+    .my_classified_title {
+        font-size: 20px;
+    }
+    .my_classified_price {
+        font-size: 20px;
     }
 }

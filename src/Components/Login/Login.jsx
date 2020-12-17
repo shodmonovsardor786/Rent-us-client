@@ -3,7 +3,6 @@ import './Login.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { FaTimesCircle, FaSignInAlt } from 'react-icons/fa'
-import Tilt from 'react-vanilla-tilt'
 import { ADDRESS } from '../Context'
 
 const Login = () => {
@@ -47,7 +46,6 @@ const Login = () => {
 			<Link className="exit" to="/"><FaTimesCircle/></Link>
 			<div className="login_container">
 				<form className="login_form">
-				<Tilt id="tilt">
 					<h1>Sign In</h1>
 					<label htmlFor="username">Username</label>
 					<input onKeyUp={e => {setUsername(e.target.value)}} id="username" type="email" autoComplete="false" placeholder="Username" required/>
@@ -56,7 +54,6 @@ const Login = () => {
 					<p className="message">{message}</p>
 					<Link to="/create" className="create">Sign Up</Link>
 					<button disabled={button.disabled} onClick={e => buttonClick(e)} className="login"><p>Login</p><FaSignInAlt/></button>
-				</Tilt>
 				</form>
 			</div>
 		</>

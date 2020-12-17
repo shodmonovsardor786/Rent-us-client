@@ -178,7 +178,7 @@
 }
 
 .classified_view {
-    color: skyblue;
+    color: #2bb6e5;
 }
 
 .classified_modal {
@@ -272,9 +272,9 @@
     margin-bottom: 10px;
     font-size: 14px;
     color: snow;
-    text-shadow: 0 0 2px black;
+    text-shadow: 0 1px 2px black;
     border-radius: 5px;
-    background: skyblue;
+    background: #2bb6e5;
 }
 
 .modal_body {
@@ -311,7 +311,7 @@
 
 .modal_order {
     flex-grow: 1;
-    background: linear-gradient(to right, skyblue, #2bb6e5);
+    background: #2bb6e5;
     margin-right: 10px;
 }
 
@@ -370,7 +370,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: skyblue;
+    color: #2bb6e5;
     font-size: 20px;
     transform: rotateX(50deg);
     outline: none;

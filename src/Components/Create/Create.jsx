@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { FaTimesCircle } from 'react-icons/fa'
 import axios from 'axios'
 import './Create.css'
-import Tilt from 'react-vanilla-tilt'
 import { ADDRESS } from '../Context'
 
 const Create = () => {
@@ -132,7 +131,13 @@ const Create = () => {
                 }
 
                 if (verify.trim().length === 6) {
-                    const { data } = await axios.post(`${ADDRESS}/create`, { verify: verify.trim(), username: username.trim()})
+                    const { data } = await axios.post(`${ADDRESS}/create`, { 
+                        verify: verify.trim(),
+                        username: username.trim(),
+                        password: password.trim(),
+                        number: number.trim(),
+                        email: email.trim(),
+                    })
                     if(data.data) {
                         window.localStorage.setItem('access_token', data.access_token)
                         window.location.pathname = "/account"
@@ -152,14 +157,9 @@ const Create = () => {
     }
 
     function deleteUser() {
-        ;(async () => {
-            const { data } = await axios.post(`${ADDRESS}/create`, {deleteUser: username.trim()})
-            if(data.data) {
-                setMessage('')
-                setVerifyModal('none')
-                setVerify('')
-            }
-        })()
+        setMessage('')
+        setVerifyModal('none')
+        setVerify('')
     }
 
     return (
@@ -167,7 +167,6 @@ const Create = () => {
             <Link className="exit" to="/"><FaTimesCircle/></Link>
             <div className="create_container">
                 <form>
-                    <Tilt id="tilt">
                         <h1>Sign Up</h1>
 
                         <label htmlFor="username">Username</label>
@@ -187,7 +186,6 @@ const Create = () => {
 
                         <Link className="loginLink" to="/login">Sign In</Link>
                         <button disabled={button.disabled} onClick={e => buttonClick(e)} className="createBtn">OK</button>
-                    </Tilt>
                 </form>
             </div>
             <div className={verifyModal}>

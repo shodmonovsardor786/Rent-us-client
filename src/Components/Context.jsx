@@ -3,7 +3,8 @@ import React, { createContext, useState, useContext } from "react"
 const FilterContext = createContext()
 
 //                 port ozgarmidi 4000
-const ADDRESS = 'http://localhost:4000'
+// const ADDRESS = 'https://rent-house-server.herokuapp.com/'
+const ADDRESS = 'http://192.168.1.149:4000'
 
 const FilterProvider = ({children}) => {
 

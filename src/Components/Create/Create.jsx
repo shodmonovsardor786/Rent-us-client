@@ -176,8 +176,8 @@ const Create = () => {
                         <label htmlFor="password">Password</label>
                         <input className={classPassword} onKeyUp={e => {setPassword(e.target.value)}} id="password" type="password" autoComplete="false" placeholder="Password" minLength="6" required/>
 
-                        <label htmlFor="number">Phone number (AB AAA BB CC)</label>
-                        <input className={classNumber} onKeyUp={e => {setNumber(e.target.value)}} id="number" type="number" autoComplete="false" placeholder="Phone number" minLength="9" maxLength="9" required/>
+                        <label htmlFor="number">Phone number (9* ABC AB AC)</label>
+                        <input className={classNumber} onKeyUp={e => {setNumber(e.target.value)}} id="number" type="number" autoComplete="false" placeholder="9* *** ** **" minLength="9" maxLength="9" required/>
 
                         <label htmlFor="email">Email</label>
                         <input className={classEmail} onKeyUp={e => {setEmail(e.target.value)}} id="email" type="mail" placeholder="Email"/>

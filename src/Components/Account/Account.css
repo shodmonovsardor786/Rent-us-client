@@ -27,7 +27,8 @@
 }
 
 .exitAccount,
-.new {
+.new,
+.setting {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,15 +40,10 @@
     box-shadow: 0 5px 5px -5px black;
 }
 
-.logout {
+.setting {
     margin-right: 10px;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background-color: #1c8adb;
-    color: #fff;
-    box-shadow: 0 5px 5px -5px black;
 }
+
 
 .empty-classifieds {
     margin: 150px auto;

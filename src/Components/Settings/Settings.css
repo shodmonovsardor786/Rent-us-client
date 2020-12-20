@@ -1,0 +1,212 @@
+.card_setting {
+    width: 70%;
+    margin: 30px auto 0;
+    padding: 50px 20px;
+    padding-top: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px black;
+}
+
+.exit-account {
+    margin-right: auto;
+    color: #1c8adb;
+    font-size: 30px;
+}
+
+.account_image {
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+.no_img,
+.have_img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.upload {
+    width: 100%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    transform: translateY(100%);
+    transition: 1s;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.upload span{
+    width: 30px;
+    height: 30px;
+    color: snow;
+    font-size: 30px;
+    margin-top: 10px;    
+}
+
+.no_img:hover .upload{
+    transform: translateY(50%);
+}
+
+.have_img:hover .upload{
+    transform: translateY(50%);
+}
+
+.account_image img {
+    width: 100%;
+    display: block;
+}
+
+.user_info {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.user_info div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.user_info p, .change_input {
+    width: 50%;
+    font-style: italic;
+}
+
+.user_info input {
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.success {
+    border-color: #1c8adb !important;
+}
+
+.warning {
+    border-color: #f8453f !important;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.buttons button, .delete_account {
+    padding: 10px 20px;
+    margin: 0 20px;
+    margin-left: 0;
+    border-radius: 7px;
+    border: none;
+    color: snow;
+    text-shadow: 0 0 5px black;
+    cursor: pointer;
+    background-color: #f8453f;
+    font-family: "Prox";
+}
+
+
+.buttons .submit {
+    margin-left: auto;
+    margin-right: 0;
+    flex-grow: 1;
+    background-color: #1c8adb;
+}
+
+
+.verify_del {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.del_content {
+    position: relative;
+    width: 30%;
+    margin: 200px auto 0;
+    background-color: #1c8adb;
+    padding: 50px 20px;
+    border-radius: 10px;
+}
+
+.del_content input {
+    border: 2px solid transparent;
+    outline: none;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.success_v {
+    border-color: black !important;
+}
+
+.close_verify {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    color: #f8453f;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .card_setting {
+        width: 90%;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .card_setting {
+        width: 95%;
+        margin: 0 auto;
+        box-shadow: none;
+    }
+
+    .buttons {
+        flex-direction: column-reverse;
+    }
+
+    .buttons button {
+        margin: 10px 0;
+    }
+
+    .submit {
+        width: 100%;
+        margin-bottom: auto;
+    }
+    .user_info div {
+        flex-direction: column;
+    }
+    .user_info p, .change_input {
+        width: 100%;
+    }
+    .change_input {
+        box-shadow: 0 2px 5px #ccc;
+    }
+}

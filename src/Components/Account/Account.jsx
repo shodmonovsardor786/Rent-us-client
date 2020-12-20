@@ -4,6 +4,7 @@ import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { FaComment, FaFileUpload, FaTrashAlt, FaEye } from 'react-icons/fa'
+import { FiSettings } from 'react-icons/fi'
 import { BsPlus } from 'react-icons/bs';
 import { HiLogout } from 'react-icons/hi';
 import {  } from 'react-icons/gr';
@@ -29,14 +30,6 @@ const Account = () => {
 	const [closedCommentsModal, setCloseCommentsModal] = useState(false)
 
 	const [closeImagesModal, setCloseImagesModal] = useState(false);
-	
-	function logout(e) {
-		if(e) {
-			window.localStorage.removeItem('access_token')
-			window.location.pathname = '/'
-		}
-	}
-
 
     useEffect(() => {
 		;(async () => {
@@ -173,7 +166,7 @@ const Account = () => {
 		<div className="header">
 			<Link className="exitAccount" to="/"><HiLogout/></Link>
 			<h1 className="title">My Classifieds</h1>		
-			<button onClick={e => logout(e)} className="logout">Log Out</button>
+			<Link className="setting" to="/account/settings"><FiSettings/></Link>
 			<Link className="new" to="/new"><BsPlus/></Link>
 		</div>
 

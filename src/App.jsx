@@ -8,6 +8,7 @@ import NewClassified from './Components/NewClassified/NewClassified'
 import Login from './Components/Login/Login'
 import Create from './Components/Create/Create'
 import Account from './Components/Account/Account'
+import Settings from './Components/Settings/Settings'
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
 			<Route path="/account" exact>
 				<Account/>
 				<Menu/>
+			</Route>
+			
+			<Route path="/account/settings" exact>
+				<Settings/>
 			</Route>
 
 			<Route path="/login" exact>

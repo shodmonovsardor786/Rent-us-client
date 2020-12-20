@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import Header from './Components/Header/Header'
 import Filter from './Components/Filter/Filter'
@@ -12,10 +12,17 @@ import Settings from './Components/Settings/Settings'
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
+
+	useEffect(() => {
+		if(window.location.pathname === '/') {
+			window.location.pathname = 'home'
+		}
+	}, [])
+	
 	return (
 	<>
 		<Switch>
-			<Route path="/" exact>
+			<Route path="/home" exact>
 				<Header/>
 				<Filter/>
 				<Classifieds/>

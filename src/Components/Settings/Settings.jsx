@@ -30,8 +30,8 @@ const Settings = () => {
 			const headers = {
 				'Content-Type': 'application/json',
 				'Token': window.localStorage.getItem('access_token'),
-			}
-			const { data } = await axios.get(`${ADDRESS}/account/settings`, { headers })
+            }
+            const { data } = await axios.get(`${ADDRESS}/account/settings`, { headers })
 			if(data.data === null)  {
 				window.localStorage.removeItem('access_token')
 				window.location.pathname = '/login'
@@ -151,7 +151,7 @@ const Settings = () => {
     }   
 
     function logout() {
-        window.location.pathname = '/'
+        window.location.pathname = '/home'
         window.localStorage.removeItem('access_token')
     }
 
@@ -167,7 +167,7 @@ const Settings = () => {
                     if(data.data) {
                         setVerify(false)
                         window.localStorage.removeItem('access_token')
-                        window.location.pathname = "/"
+                        window.location.pathname = "/home"
                     }
                 }
             }

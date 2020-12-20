@@ -23,7 +23,7 @@ const Create = () => {
     useEffect(() => {
         const token = window.localStorage.getItem('access_token')
         if(token) {
-            window.location.pathname = '/'
+            window.location.pathname = '/home'
         }
     }, [])
 

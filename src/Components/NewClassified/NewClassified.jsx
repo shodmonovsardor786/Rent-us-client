@@ -66,7 +66,7 @@ const NewClassified = () => {
 					}
 					const { data } = await axios.post(`${ADDRESS}/new`, { classified }, { headers } )
 					if(data) {
-						window.location.pathname = '/'
+						window.location.pathname = '/home'
 						setBtn(false)
 					}
 				}

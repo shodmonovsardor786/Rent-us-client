@@ -60,7 +60,7 @@ const Classifieds = () => {
 	useEffect(() => {
 		;(async () => {
 			if(state) {
-				const { data } = await axios.get(`${ADDRESS}`)
+				const { data } = await axios.get(`${ADDRESS}/home`)
 				if(data.images) {
 					const img = data.images.filter(img => state.data.find(cls => cls.classified_id === img.classified_id))
 					setClassifieds({data: state.data, loading: false, images: img}) 
@@ -80,7 +80,7 @@ const Classifieds = () => {
 					'Content-Type': 'application/json',
 					'Token': window.localStorage.getItem('access_token'),
 				}
-				const { data } = await axios.post(`${ADDRESS}`, { newComment: newComment.trim(), id: commentInputBtn.id}, { headers })				
+				const { data } = await axios.post(`${ADDRESS}/home`, { newComment: newComment.trim(), id: commentInputBtn.id}, { headers })				
 				if(data) {
 					setCommentInputBtn({click: false, id: 0})
 					setCloseCommentsModal(true)
@@ -106,7 +106,7 @@ const Classifieds = () => {
 
 	function openModal(index) {
 		;(async () => {
-			const { data } = await axios.post(`${ADDRESS}`, { index })
+			const { data } = await axios.post(`${ADDRESS}/home`, { index })
 			if(data.images.length > 0 ) {
 				setClassifieds({data: classifieds.data, modal: data.classified, modalImg: data.images, images: classifieds.images})
 			}
@@ -129,7 +129,7 @@ const Classifieds = () => {
 
 	function openModalComments(index) {
 		;(async () => {
-			const { data } = await axios.post(`${ADDRESS}`, {index})
+			const { data } = await axios.post(`${ADDRESS}/home`, {index})
 			setClassifieds({data: classifieds.data, modal: classifieds.modal, comments: data.comments, commentIndex: index, images: classifieds.images})
 			setCloseCommentsModal(false)
 		})()
@@ -151,7 +151,7 @@ const Classifieds = () => {
 			setOrderBtn(true)
 			const orderToken = window.localStorage.getItem('access_token')
 			if(orderToken) {
-				const { data } = await axios.post(`${ADDRESS}`, { orderId, orderToken })
+				const { data } = await axios.post(`${ADDRESS}/home`, { orderId, orderToken })
 				if(data.data) {
 					alert('They will call you')
 					setCloseModal(true)

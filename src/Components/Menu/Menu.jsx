@@ -32,7 +32,7 @@ const Menu = () => {
 	}, [])
 
 	useEffect(() => {
-		if(window.location.pathname === '/') {
+		if(window.location.pathname === '/home') {
 			setClass(true)
 		}
 		else {
@@ -44,8 +44,8 @@ const Menu = () => {
 		<>
 		<div className="menu">
 			<div className="container">
-				<Link to="/" onClick={() => setFilter(!filter)} className={classname ? 'link' : 'none'}><HiMenuAlt1/></Link>
-				<Link className={classname ? 'none' : 'link'} onClick={() => setFilter(true)} to="/"><FaHome/></Link>
+				<Link to="/home" onClick={() => setFilter(!filter)} className={classname ? 'link' : 'none'}><HiMenuAlt1/></Link>
+				<Link className={classname ? 'none' : 'link'} onClick={() => setFilter(true)} to="/home"><FaHome/></Link>
 				<Link className="link" to={account}><FaUserCircle/></Link>
 				<Link className="link" to={newAdd}><FiPlusCircle/></Link>
 			</div>

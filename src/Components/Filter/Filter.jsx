@@ -20,7 +20,7 @@ const Filter = () => {
 
 	useEffect(() => {
 		;(async () => {
-			const {data } = await axios.get(`${ADDRESS}`)
+			const {data } = await axios.get(`${ADDRESS}/home`)
 			setRegion({data: data.regions})
 		})()
 	}, [setRegion])
@@ -35,28 +35,28 @@ const Filter = () => {
 	useEffect(() => {
 		;(async () => {
 			if(region.value > 0 && district.value > 0 && type.value > 0 && room.value > 0 && priceFrom.length > 0 && priceTo.length > 0) {
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value, district: district.value, type: type.value, room: room.value, priceFrom: priceFrom, priceTo: priceTo})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value, district: district.value, type: type.value, room: room.value, priceFrom: priceFrom, priceTo: priceTo})
 				setState({data: data.classifieds})
 			}
 			else if(region.value > 0 && district.value > 0 && type.value > 0 && room.value > 0 && priceFrom.length > 0) {
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value, district: district.value, type: type.value, room: room.value, priceFrom: priceFrom})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value, district: district.value, type: type.value, room: room.value, priceFrom: priceFrom})
 				setState({data: data.classifieds})
 			}
 			else if(region.value > 0 && district.value > 0 && type.value > 0 && room.value > 0) {
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value, district: district.value, type: type.value, room: room.value})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value, district: district.value, type: type.value, room: room.value})
 				setState({data: data.classifieds})
 			}			
 			else if(region.value > 0 && district.value > 0 && type.value > 0) {
 				setRoom({value: 0})
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value, district: district.value, type: type.value})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value, district: district.value, type: type.value})
 				setState({data: data.classifieds})
 			}
 			else if(region.value > 0 && district.value > 0) {
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value, district: district.value})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value, district: district.value})
 				setState({data: data.classifieds})
 			}
 			else if(region.value > 0) {
-				const { data } = await axios.post(`${ADDRESS}`, {region: region.value})
+				const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value})
 				setDistrict({data: data.districts})
 				setState({data: data.classifieds, images: data.images})
 			}

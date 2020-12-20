@@ -164,7 +164,7 @@ const Account = () => {
     return (
         <>
 		<div className="header">
-			<Link className="exitAccount" to="/"><HiLogout/></Link>
+			<Link className="exitAccount" to="/home"><HiLogout/></Link>
 			<h1 className="title">My Classifieds</h1>		
 			<Link className="setting" to="/account/settings"><FiSettings/></Link>
 			<Link className="new" to="/new"><BsPlus/></Link>

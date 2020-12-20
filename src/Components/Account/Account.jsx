@@ -129,7 +129,7 @@ const Account = () => {
 
 	function openModalComments(index) {
 		;(async () => {
-			const { data } = await axios.post(`${ADDRESS}`, {index})
+			const { data } = await axios.post(`${ADDRESS}/home`, {index})
 			setClassifieds({data: classifieds.data, comments: data.comments, commentIndex: index, images: classifieds.images})
 			setCloseCommentsModal(false)
 		})()

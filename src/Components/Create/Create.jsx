@@ -164,7 +164,7 @@ const Create = () => {
 
     return (
         <>
-            <Link className="exit" to="/"><FaTimesCircle/></Link>
+            <Link className="exit" to="/home"><FaTimesCircle/></Link>
             <div className="create_container">
                 <form>
                         <h1>Sign Up</h1>

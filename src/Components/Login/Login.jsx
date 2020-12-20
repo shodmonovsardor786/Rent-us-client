@@ -43,7 +43,7 @@ const Login = () => {
 
 	return (
 		<>
-			<Link className="exit" to="/"><FaTimesCircle/></Link>
+			<Link className="exit" to="/home"><FaTimesCircle/></Link>
 			<div className="login_container">
 				<form className="login_form">
 					<h1>Sign In</h1>

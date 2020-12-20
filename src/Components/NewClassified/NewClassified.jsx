@@ -117,7 +117,7 @@ const NewClassified = () => {
 	
 	useEffect(() => {
 		;(async () => {
-			const {data, status } = await axios.get(`${ADDRESS}`)
+			const {data, status } = await axios.get(`${ADDRESS}/home`)
 			if(status > 299) setRegion({data: [], error: 'error'})
 			else {
 				setRegion({data: data.regions})
@@ -127,11 +127,10 @@ const NewClassified = () => {
 
 	useEffect(() => {
 		;(async () => {
-			const { data } = await axios.get(`${ADDRESS}`)
+			const { data } = await axios.post(`${ADDRESS}/home`, {region: region.value})
 			if(region.value === 0 ) setDistrict({data: []})
 			else {
-				const districts = data.districts.filter(d => d.region_id === region.value)
-				setDistrict({data: districts, value: 0})
+				setDistrict({data: data.districts, value: 0})
 			}
 		})()
 	}, [region.value])

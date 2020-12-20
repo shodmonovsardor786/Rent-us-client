@@ -20,7 +20,7 @@
     justify-content: center;
     border-radius: 50%;
     background-color: #fff;
-    color: #2bb6e5;
+    color: #1c8adb;
     box-shadow: 0 5px 5px -2px #aaa;
     z-index: 8888;
 }
@@ -69,7 +69,7 @@
     background-color: #fff;
     border: 1px solid #eee;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: .3s;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .img-wrapper {
-    width: 50%;
+    width: 40%;
     height: 220px;
     padding: 0;
     margin: 0;
@@ -103,7 +103,7 @@
 }
 
 .classified_info {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -118,30 +118,33 @@
     margin-top: 10px;
 }
 
-.classified_header {
-    justify-content: space-between;
-}
-
 .classified_title {
+    width: 80%;
     margin: 0;
     padding: 0;
     letter-spacing: 2px;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 25px;
 }
 
 .classified_price {
-    font-size: 25px;
+    width: 20%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 20px;
     margin: 0;
     padding: 0;
     font-weight: bold;
+    text-align: right;
 }
 
 .classified_mini-info p {
     margin: 20px;
     margin-left: 0;
-    padding: 8px;
+    padding: 5px;
     color: snow;
     text-shadow: 0 0 2px black;
     font-weight: bold;
@@ -149,13 +152,17 @@
     font-size: 12px;
     box-shadow: 0 5px 5px -2px #ccc;
     border-radius: 5px;
-    background: #2bb6e5;
+    background: #1c8adb;
 }
 
 .classified_addres {
+    width: 100%;
     margin: 0;
     font-weight: bold;
     font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .classified_time {
@@ -174,11 +181,11 @@
 
 .classified_comments {
     margin-left: auto;
-    color: #f8453f;
+    color: #1c8adb;
 }
 
 .classified_view {
-    color: #2bb6e5;
+    color: #1c8adb;
 }
 
 .classified_modal {
@@ -196,13 +203,53 @@
     display: none;
 }
 
+.logo-div {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+}
+
+.logo-div .div{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo-div .rent {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: snow;
+    text-shadow: 0 0 5px black;
+}
+
+.info {
+    margin-right: 100px;
+    font-size: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    line-height: 2;
+    color: #555;
+}
+
 /* ////////////// */
 /* MODAL */
 /* ////////////// */
 
 .classified_content__modal {
     position: relative;
-    width: 40%;
+    width: 50%;
     min-height: 95vh;
     margin: 10px auto 0;
     background-color: #fff;
@@ -250,14 +297,22 @@
 }
 
 .modal_title {
-    flex-grow: 1;
+    width: 80%;
     margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .modal_price {
+    width: 20%;
     font-size: 30px;
     font-weight: bold;
     margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;  
 }
 
 .modal_info {
@@ -266,15 +321,19 @@
 
 .modal_info p {
     width: auto;
-    padding: 10px;
+    padding: 7px;
     margin-top: 0;
     margin-right: 10px;
     margin-bottom: 10px;
     font-size: 14px;
     color: snow;
     text-shadow: 0 1px 2px black;
+    box-shadow: 0 5px 5px -2px #ccc;
     border-radius: 5px;
-    background: #2bb6e5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: #1c8adb;
 }
 
 .modal_body {
@@ -303,6 +362,7 @@
     color: snow;
     text-shadow: 0 0 2px black;
     font-weight: bold;
+    font-family: "Prox";
     font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
@@ -311,7 +371,7 @@
 
 .modal_order {
     flex-grow: 1;
-    background: #2bb6e5;
+    background: #1c8adb;
     margin-right: 10px;
 }
 
@@ -341,7 +401,7 @@
 
 .comments {
     position: relative;
-    width: 40%;
+    width: 50%;
     height: 95vh;
     margin: 10px auto;
     padding: 10px;
@@ -370,7 +430,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #2bb6e5;
+    color: #1c8adb;
     font-size: 20px;
     transform: rotateX(50deg);
     outline: none;
@@ -415,7 +475,7 @@
     border-radius: 5px;
     list-style-type: none;
     background-color: #fff;
-    box-shadow: 0 5px 5px #f8453f;
+    box-shadow: 0 2px 2px #f8453f;
     background:  #fff;
 }
 
@@ -482,6 +542,9 @@
     .comments {
         width: 70%;
     }
+    .info {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -492,8 +555,8 @@
         margin-left: 0;
     }
 
-    .img-wrapper {
-        width: 60%;
+    .classified_item {
+        width: 95%;
     }
 
     .links {
@@ -504,14 +567,44 @@
         margin-top: 30px;
         min-height: 85vh;
     }
+    .logo-div {
+        width: 100%;
+        margin-top: 70px;
+        flex-direction: column;
+    }
+    
+    .logo-div div {
+        width: 90%;
+    }
+
+    .logo-div img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .rent {
+        display: none;
+    }
+
+    .info {
+        text-align: center;
+        margin: 0 100px;
+    }
 }
 
 @media (max-width: 600px) {
+    .classified_item {
+        width: 70%;
+    }
 
     .classified_main {
         display: block;
     }
     
+    .classified_info {
+        width: 100%;
+    }
+
     .classified_title {
         font-size: 20px;
     }
@@ -537,27 +630,28 @@
 }
 
 @media (max-width: 500px) {
-    .classified_content__modal {
-        margin: 10px auto;
-        width: 95%;
-        height: 95vh;
-    }
-}
-
-@media (max-width: 400px) {
     .classified_item {
         width: 95%;
         margin: 5px auto;
     }
+    .classified_content__modal {
+        margin: 10px auto;
+        width: 90%;
+        height: 95vh;
+    }
 }
 
-@media (max-width: 370px) {
+
+@media (max-width: 400px) {
     .classified_mini-info {
         flex-wrap: wrap;
     }
-
+    .classified_title {
+        font-size: 18px;
+    }
     .classified_mini-info p {
         margin: 5px;
+        padding: 5px;
         font-weight: normal;
         margin-left: 0;
     }

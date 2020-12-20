@@ -14,13 +14,13 @@
 
 
 .login_container form{
-    width: 25%;
+    width: 30%;
     margin: 0 auto;
     padding: 50px 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: #2bb6e5;
+    background: #1c8adb;
     border-radius: 10px;
     box-shadow: 0 5px 5px black;
 }
@@ -28,6 +28,9 @@
 .login_container h1 {
     margin: 0 auto;
     color: snow;
+    font-family: 'Billabong', 'Arial', sans-serif;
+    letter-spacing: 5px;
+    font-style: italic;
     text-shadow: 0 0 5px black;
 }
 
@@ -93,7 +96,7 @@
 }
 
 @media (max-width: 1000px) {
-    .login_container #tilt {
+    .login_container form {
         width: 50%;
     }
 }
@@ -102,13 +105,13 @@
     .login_container {
         padding-top: 70px;
     }
-    .login_container #tilt {
+    .login_container form {
         width: 80%;
     }
 }
 
 @media (max-width: 350px) {
-    .login_container #tilt {
+    .login_container form {
         width: 95%;
     }
 }

@@ -10,9 +10,11 @@
     top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to right, skyblue, #2bb6e5, skyblue);
+    background: #1c8adb;
     box-shadow: 0 0 10px black;
     z-index: 9999;
+    font-family: 'Billabong', 'Arial', sans-serif;
+    letter-spacing: 7px;
 }
 
 .title {
@@ -21,6 +23,7 @@
     text-align: center;
     text-shadow: 0 0 5px black;
     font-style: normal;
+    font-style: italic;
 }
 
 .exitAccount,
@@ -31,7 +34,7 @@
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 30px;
-    background-color: #2bb6e5;
+    background-color: #1c8adb;
     color: #fff;
     box-shadow: 0 5px 5px -5px black;
 }
@@ -41,7 +44,7 @@
     padding: 12px;
     border: none;
     border-radius: 10px;
-    background-color: #2bb6e5;
+    background-color: #1c8adb;
     color: #fff;
     box-shadow: 0 5px 5px -5px black;
 }
@@ -71,7 +74,7 @@
     background-color: #fff;
     border: 1px solid #aaa;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 5px 5px #ccc;
 }
 
@@ -80,7 +83,7 @@
 }
 
 .my_img-wrapper {
-    width: 80%;
+    width: 40%;
     height: 250px;
     overflow: hidden;
     position: relative;
@@ -115,7 +118,7 @@
 }
 
 .my_classified_info {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -136,16 +139,26 @@
 }
 
 .my_classified_title {
+    width: 80%;
     margin: 0;
     padding: 0;
     letter-spacing: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 22px;
 }
 
 .my_classified_price {
-    font-size: 25px;
+    width: 20%;
+    font-size: 22px;
     margin: 0;
     padding: 0;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
 }
 
 .my_classified-info {
@@ -158,12 +171,15 @@
     margin-left: 0;
     padding: 8px;
     color: snow;
-    background: #2bb6e5;
+    background: #1c8adb;
     text-shadow: 0 0 2px black;
     border-radius: 5px;
     font-size: 12px;
     box-shadow: 0 5px 5px -2px #ccc;
-    background: #2bb6e5;
+    background: #1c8adb;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .my_time {
@@ -173,8 +189,11 @@
 }
 
 .my_classified_addres {
-    font-weight: bold;
     margin: 0;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .editModal {
@@ -202,7 +221,7 @@
     margin-left: 10px;
     font-size: 20px;
     cursor: pointer;    
-    color: #2bb6e5;
+    color: #1c8adb;
 }
 
 .my_commentBtn {
@@ -262,6 +281,7 @@
 
 .images_modal .image_btn {
     box-shadow: 0 0 10px black;
+    font-family: "Prox";
 }
 
 
@@ -373,11 +393,12 @@ input {
     cursor: pointer;
     border-radius: 5px;
     outline: none;
+    font-family: "Prox";
 }
 
 .edit_ok {
     flex-grow: 1;
-    background: linear-gradient(to right, skyblue, #2bb6e5, skyblue);
+    background: linear-gradient(to right, skyblue, #1c8adb, skyblue);
     margin-right: 10px;
 }
 
@@ -469,6 +490,7 @@ input {
     border-radius: 5px;
     background-color: #f8453f;
     outline: none;
+    font-family: "Prox";
 }
 
 @media (max-width: 1200px) {
@@ -484,6 +506,9 @@ input {
         display: block;
     }
     .my_img-wrapper {
+        width: 100%;
+    }
+    .my_classified_info {
         width: 100%;
     }
 }

@@ -8,11 +8,35 @@ html {
     box-sizing: inherit;
 }
 
+@font-face {
+    font-family: 'Billabong';
+    src: url('./fonts/Billabong.woff2') format('woff2'),
+    url('./fonts/Billabong.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Prox';
+    src: url('./fonts/Prox-Italic.woff2') format('woff2'),
+        url('./fonts/Prox-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', 'Arial', sans-serif;
+    font-family: 'Prox';
+    font-weight: normal;
+    font-style: italic;
     background-color: #f8f8f8;
+
 }
 
 ::-webkit-scrollbar {

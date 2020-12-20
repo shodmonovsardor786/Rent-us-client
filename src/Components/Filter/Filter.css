@@ -2,7 +2,7 @@
     width: 20%;
     position: fixed;
     top: 70px;
-    height: 90vh;
+    height: 92vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -43,9 +43,10 @@
 }
 
 form .filter_item label {
-    font-size: 14px;
+    font-size: 20px;
     text-shadow: none;
-    color: #111;
+    font-family: "Billabong";
+    color: black;
 }
 
 .filter_item 
@@ -57,7 +58,16 @@ form .filter_item label {
     margin-top: 2px;
     background-color: #fff;
     border-radius: 5px;
+    color: #555;
     cursor: pointer;
+    font-family: 'Prox';
+    font-weight: normal;
+    font-style: italic;
+    transition: 0.2s;
+}
+
+.filter_select option {
+    background-color: #f8f8f8;
 }
 
 .filter_item_li {

@@ -185,7 +185,7 @@ const Create = () => {
                         <p className="message">{message}</p>
 
                         <Link className="loginLink" to="/login">Sign In</Link>
-                        <button disabled={button.disabled} onClick={e => buttonClick(e)} className="createBtn">OK</button>
+                        <button disabled={button.disabled} onClick={e => buttonClick(e)} className="createBtn">Create</button>
                 </form>
             </div>
             <div className={verifyModal}>

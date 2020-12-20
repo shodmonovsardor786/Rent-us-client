@@ -10,7 +10,7 @@
     padding: 20px;
     font-style: italic;
     color: snow;
-    background: #2bb6e5;
+    background: #1c8adb;
     box-shadow: 0 5px 5px #555;
     z-index: 2;
 }
@@ -19,6 +19,8 @@
     margin: 0;
     flex-grow: 1;
     text-align: center;
-    font-style: normal;
+    font-style: italic;
+    font-family: 'Billabong', 'Arial', sans-serif;
+    letter-spacing: 10px;
     text-shadow: 0 0 5px black;
 }

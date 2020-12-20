@@ -179,7 +179,7 @@ const Classifieds = () => {
 
 	<ul className={classifiedsClass}>
 		{
-			classifieds.data && classifieds.data.map((cls) => (
+			classifieds.data.length > 0 ? classifieds.data.map((cls) => (
 				<li className="classified_item" key={cls.classified_id}>
 					<div className="classified_main">
 							<div className="img-wrapper">
@@ -210,9 +210,18 @@ const Classifieds = () => {
 						</div>
 			</li>
 		))
+		:
+		<li className="logo-div">
+			<div className="div">
+				<img src="https://www.zg66.ru/media/com_jbusinessdirectory/pictures/companies/555/vebinarysmarthome-1536063127.png" alt="img" width="250" height="250"/>
+				<p className="rent">Rent House</p>
+			</div>
+			<div className={window.innerWidth > 900 ? 'info': 'none'}>Welcome to our "Rent house" platform. Here you can find the house you need to rent. Use the filter on the left. On the right is a button to place your account and a new ad.</div>
+			<div  className={window.innerWidth < 900 ? 'info': 'none'}>Welcome to our "Rent house" platform. Here you can find the house you need to rent. Use the filter on the menu. On the bottom is a button to place your account and a new ad.</div>
+		</li>
 		}
-	</ul>
 
+	</ul>
 	{
 		classifieds.comments &&
 		<div className={commentsModalActive(classifieds.commentIndex)} onClick={closeCommentsModal}>

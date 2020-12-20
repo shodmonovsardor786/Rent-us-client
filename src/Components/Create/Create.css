@@ -19,6 +19,9 @@
 .create_container h1 {
     margin: 0 auto;
     color: snow;
+    font-family: 'Billabong', 'Arial', sans-serif;
+    letter-spacing: 5px;
+    font-style: italic;
     text-shadow: 0 0 5px black;
 }
 

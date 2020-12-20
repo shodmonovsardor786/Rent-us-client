@@ -173,8 +173,9 @@ select,
     font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
-    background: linear-gradient(to right, skyblue, #2bb6e5, skyblue);
+    background: #1c8adb;
     box-shadow: 0 0 2px black;
+    font-family: "Prox";
 }
 
 .cancel {

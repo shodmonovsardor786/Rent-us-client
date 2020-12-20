@@ -11,8 +11,8 @@ import 'react-slideshow-image/dist/styles.css'
 
 const Classifieds = () => {
 
-	const [ link, setLink] = useState("/account")
-	const [ linkNew, setLinkNew] = useState("/new")
+	const [ link, setLink] = useState("/login")
+	const [ linkNew, setLinkNew] = useState("/login")
 
 	const [	state, filter] = useFilter()
 	const [classifiedsClass, setClassifiedsClass] = useState('classifieds_list');
@@ -37,6 +37,8 @@ const Classifieds = () => {
 				setLinkNew("/login")
 			}
 			else {
+				setLink("/account")
+				setLinkNew("/new")
 				setCommentInput(true)
 			}
 		})()

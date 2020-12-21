@@ -25,6 +25,12 @@
     z-index: 8888;
 }
 
+.account img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
 .classifieds_list {
     margin-left: calc(13%);
     margin-top: 90px;
@@ -67,24 +73,20 @@
     padding: 0;
     margin: 10px auto;
     background-color: #fff;
-    border: 1px solid #eee;
+    border: 1px solid #aaa;
     overflow: hidden;
     border-radius: 10px;
     transition: .3s;
 }
 
-.classified_item:hover {
-    transform: scale(1.01);
-    box-shadow: 0 0 10px #ccc;
-}
 
 .classified_main {
     display: flex;
 }
 
 .img-wrapper {
-    width: 40%;
-    height: 220px;
+    width: 30%;
+    height: 250px;
     padding: 0;
     margin: 0;
     border-radius: 0;
@@ -93,7 +95,7 @@
 
 .img-wrapper > div {
     width: 100%;
-    height: 220px;
+    height: 250px;
     display: block;
 }
 
@@ -103,7 +105,7 @@
 }
 
 .classified_info {
-    width: 60%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -443,11 +445,10 @@
 
 .comments_text {
     letter-spacing: 10px;
-    color: snow;
+    color: #f8453f;
     text-align: center;
     font-style: italic;
     padding: 0;
-    text-shadow: 0 0 5px black;
     font-weight: bold;
 }
 
@@ -473,10 +474,27 @@
     padding: 5px;
     margin: 0 5px 15px;
     border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
     list-style-type: none;
     background-color: #fff;
-    box-shadow: 0 2px 2px #f8453f;
+    border: 1px solid #aaa;
     background:  #fff;
+}
+
+.user_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.no_userImg {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    color: #1c8adb;
 }
 
 .comments_item:first-child {
@@ -486,14 +504,26 @@
 .comments_item p {
     padding: 0;
     margin: 0;
-    font-size: 15px;
     font-style: italic;
+    margin: 5px 0;
+}
+
+.comment-user {
+    width: 100%;
+    text-align: justify;
+    font-size: 14px;
 }
 
 .comments_item .user_username {
     color: #f8453f;
     font-weight: bold;
     margin-bottom: 5px !important;
+}
+
+.time_comment {
+    text-align: right;
+    color: #aaa;
+    font-size: 12px;
 }
 
 .comments_close {

@@ -7,9 +7,7 @@
 .post_content .form{
     width: 60%;
     margin: 0 auto;
-    background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 10px 10px -5px black;
 }
 
 .post--wrapper {
@@ -117,13 +115,12 @@
 }
 
 .post_selects__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: relative;
-    box-shadow: none;
 }
 
 .post_selects__list li {
@@ -174,7 +171,6 @@ select,
     cursor: pointer;
     border-radius: 5px;
     background: #1c8adb;
-    box-shadow: 0 0 2px black;
     font-family: "Prox";
 }
 
@@ -200,7 +196,6 @@ select,
     }
     .post_content .form{
         width: 95%;
-        box-shadow: 0 0 5px black;
     }
     .cancel {
         display: none;
@@ -212,6 +207,5 @@ select,
         width: 100%;
         margin: 0;
         border-radius: 0;
-        box-shadow: none;
     }
 }

@@ -16,6 +16,8 @@ const Settings = () => {
     const [password, setPassword] = useState()
     const [newPassword, setNewPassword] = useState()
     
+    const [newImg, setNewImg] = useState(false)
+
     const [usernameClass, setUsernameClass] = useState('change_input')
     const [numberClass, setNumberClass] = useState('change_input')
     const [passwordClass, setPasswordClass] = useState('change_input')
@@ -42,6 +44,19 @@ const Settings = () => {
 		})()
     }, [])
     
+    useEffect(() => {
+        ;(async () => {
+            if (newImg.img) {
+                const formData = new FormData()
+                formData.append('file', newImg.img)
+                const { data } = await axios.post(`${ADDRESS}/newImg`, formData) 
+                if(data) {
+                    setNewImg({img: null, name: data.name})
+                }
+            }
+        })()
+            
+    }, [newImg])
 
     useEffect(() => {
         ;(async () => {
@@ -120,31 +135,37 @@ const Settings = () => {
     function submit () {
 
         ;(async () => {
+            if(newImg.name) {
+                const { data } = await axios.post(`${ADDRESS}/account/settings`, {button: true, id: user.user_id, img: newImg.name})
+                setUser(data.data)
+                window.localStorage.setItem('access_token', data.access_token)
+                window.location.pathname = "/home"
+            }
+            
             if(usernameClass === 'change_input success') {
                 const { data } = await axios.post(`${ADDRESS}/account/settings`, {button: true, username, id: user.user_id})
                 if(data.data) {
                     setUser(data.data)
                     window.localStorage.setItem('access_token', data.access_token)
-					window.location.reload()
+                    window.location.pathname = "/home"
                 }
             }
-
+            
             if(numberClass === 'change_input success') {
                 const { data } = await axios.post(`${ADDRESS}/account/settings`, {button: true, number, id: user.user_id})
                 if(data.data) {
                     setUser(data.data)
                     window.localStorage.setItem('access_token', data.access_token)
-                    window.location.reload()
+                    window.location.pathname = "/home"
                 }
             }
-
+            
             if(passwordClass === 'change_input success' && newPasswordClass === 'change_input success') {
                 const { data } = await axios.post(`${ADDRESS}/account/settings`, {button: true, password, newPassword, id: user.user_id})
                 if(data.data) {
-                    console.log(data);
                     setUser(data.data)
                     window.localStorage.setItem('access_token', data.access_token)
-                    window.location.reload()
+                    window.location.pathname = "/home"
                 }
             }
         })()
@@ -182,9 +203,17 @@ const Settings = () => {
                         <Link className="exit-account" to="/account"><HiLogout/></Link>
                         <div className="account_image">
                             {
+                                newImg.name ? 
+                                    <div className="have_img">
+                                        <img src={`${ADDRESS}/images/` + newImg.name} alt="account_img" width="200" height="200"/>
+                                        <label htmlFor="file_input" className="upload">
+                                            <span><FiCamera/></span>
+                                        </label>
+                                    </div> 
+                                :
                                 user.user_path ?
                                 <div className="have_img">
-                                    <img src="http://picsum.photos/200/200" alt="account_img" width="200" height="200"/>
+                                    <img src={`${ADDRESS}/images/` + user.user_path} alt="account_img" width="200" height="200"/>
                                     <label htmlFor="file_input" className="upload">
                                         <span><FiCamera/></span>
                                     </label>
@@ -197,7 +226,7 @@ const Settings = () => {
                                     </label>
                                 </div>
                             }
-                            <input id="file_input" className="none" type="file"/>
+                            <input onChange={e => setNewImg({img: e.target.files[0], name: null})} id="file_input" className="none" type="file"/>
                         </div>
                         <div className="user_info">
                             <div>

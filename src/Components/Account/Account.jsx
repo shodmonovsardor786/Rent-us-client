@@ -3,7 +3,7 @@ import './Account.css'
 import axios from 'axios'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import { FaComment, FaFileUpload, FaTrashAlt, FaEye } from 'react-icons/fa'
+import { FaComment, FaFileUpload, FaTrashAlt, FaEye, FaUserCircle } from 'react-icons/fa'
 import { FiSettings } from 'react-icons/fi'
 import { BsPlus } from 'react-icons/bs';
 import { HiLogout } from 'react-icons/hi';
@@ -98,7 +98,7 @@ const Account = () => {
 	
 	function imagesModal(index) {
 			;(async () => {
-			const { data } = await axios.post(`${ADDRESS}`, {index})
+			const { data } = await axios.post(`${ADDRESS}/home`, {index})
 				if(data.images) {
 					setClassifieds({data: classifieds.data, modal: classifieds.modal, images: classifieds.images, modalImages: data.images})
 				}
@@ -200,7 +200,7 @@ const Account = () => {
 									</div>
 									<p className="my_classified_addres">{cls.classified_addres}</p>
 									<div className="my_cls_footer">
-										<p className="my_time">{moment(cls.created_at).fromNow()}</p>
+										<p className="my_time">{moment(cls.created_at).format('DD-MMM HH:MM')}</p>
 										<p className="my_commentBtn" onClick={() => {openModalComments(cls.classified_id)}}><FaComment/></p>
 										{/* <p className="edit" onClick={() => {openModal(cls.classified_id)}}><FaPenNib/></p> */}
 										<p className="delete" onClick={() => { deleteFn(cls.classified_id)}}><FaTrashAlt/></p>
@@ -223,8 +223,19 @@ const Account = () => {
 						{ 
 							classifieds.comments.length ? classifieds.comments.map(c => (
 								<li className="my_comments" key={c.comment_id}>
-									<p className="user_username">{c.user_username}</p>
-									<p>{c.comment_body}</p>
+									<div>
+										{
+											c.user_path ?
+											<img className="user_img" src={`${ADDRESS}/images/` + c.user_path} alt="user img" width="50" height="50"/>
+											:
+											<span className="no_userImg"><FaUserCircle size={50} /></span>
+										}
+									</div>
+									<div className="comment-user">
+										<p className="user_username">{c.user_username}</p>
+										<p>{c.comment_body}</p>
+										<p className="time_comment">{moment(c.created_at).format('DD-MMM HH:MM')}</p>
+									</div>
 								</li>
 								))
 								: <li className="no_comment">No comment yet</li>

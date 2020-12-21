@@ -8,7 +8,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 5px black;
 }
 
 .exit-account {
@@ -22,7 +21,6 @@
     overflow: hidden;
     margin: 10px;
     margin-top: 0;
-    cursor: pointer;
 }
 
 .no_img,
@@ -35,7 +33,6 @@
     justify-content: center;
     font-size: 100px;
     background-color: #eee;
-    cursor: pointer;
 }
 
 .upload {
@@ -48,6 +45,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    cursor: pointer;
 }
 
 .upload span{
@@ -58,17 +56,11 @@
     margin-top: 10px;    
 }
 
-.no_img:hover .upload{
-    transform: translateY(50%);
-}
-
-.have_img:hover .upload{
-    transform: translateY(50%);
-}
 
 .account_image img {
     width: 100%;
     display: block;
+    object-fit: cover;
 }
 
 .user_info {
@@ -117,7 +109,6 @@
     border-radius: 7px;
     border: none;
     color: snow;
-    text-shadow: 0 0 5px black;
     cursor: pointer;
     background-color: #f8453f;
     font-family: "Prox";
@@ -179,14 +170,23 @@
     }
 }
 
-
+@media (max-width: 800px) {
+    .del_content {
+        width: 50%;
+    }
+}
 
 @media (max-width: 600px) {
+
+    .del_content {
+        width: 70%;
+    }
+
     .card_setting {
         width: 95%;
         margin: 0 auto;
-        box-shadow: none;
     }
+    
 
     .buttons {
         flex-direction: column-reverse;
@@ -207,6 +207,6 @@
         width: 100%;
     }
     .change_input {
-        box-shadow: 0 2px 5px #ccc;
+        box-shadow: 0 2px 2px #ccc;
     }
 }

@@ -5,7 +5,7 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { useFilter } from '../Context'
 import { ADDRESS } from '../Context'
-import { FaComment, FaEye, FaPaperPlane, FaUser, FaPlus } from 'react-icons/fa'
+import { FaComment, FaEye, FaPaperPlane, FaUser, FaPlus, FaUserCircle } from 'react-icons/fa'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 
@@ -13,6 +13,7 @@ const Classifieds = () => {
 
 	const [ link, setLink] = useState("/login")
 	const [ linkNew, setLinkNew] = useState("/login")
+	const [ userImg, setUserImg] = useState(false)
 
 	const [	state, filter] = useFilter()
 	const [classifiedsClass, setClassifiedsClass] = useState('classifieds_list');
@@ -37,6 +38,7 @@ const Classifieds = () => {
 				setLinkNew("/login")
 			}
 			else {
+				setUserImg(data.data.user_path)
 				setLink("/account")
 				setLinkNew("/new")
 				setCommentInput(true)
@@ -175,7 +177,14 @@ const Classifieds = () => {
     <>
     {  classifieds.data.length === 0 ? <p className="empty-classified">Empty</p> : null } 
 	<div className="links">
-		<Link to={link} className="account"><FaUser/></Link>
+		{
+			userImg ?
+			<Link className="account" to={link}>
+				<img src={`${ADDRESS}/images/` + userImg} alt="account_img" width="55" height="55"/>
+			</Link>
+			:
+			<Link to={link} className="account"><FaUser/></Link>
+		}
 		<Link to={linkNew} className="add"><FaPlus/></Link>
 	</div>
 
@@ -188,7 +197,7 @@ const Classifieds = () => {
 								{	
 									classifieds.images && classifieds.images.map(img => (
 										img.classified_id === cls.classified_id &&
-											<img key={img.image_id} src={`${ADDRESS}/images/` + img.image_path} alt="classified_image" height="300"/>
+											<img key={img.image_id} src={`${ADDRESS}/images/` + img.image_path} alt="classified_image" height="250"/>
 										))
 								}
 							</div>
@@ -204,7 +213,7 @@ const Classifieds = () => {
 								</div>
 								<p className="classified_addres">{cls.classified_addres}</p>
 								<div className="classified_footer">
-									<p className="classified_time">{moment(cls.created_at).fromNow()}</p>
+									<p className="classified_time">{moment(cls.created_at).format('DD-MMM HH:MM')}</p>
 									<p className="classified_comments" onClick={() => {openModalComments(cls.classified_id)}}><FaComment/></p>
 									<p className="classified_view" onClick={() => {openModal(cls.classified_id)}}><FaEye/></p>
 								</div>
@@ -237,8 +246,19 @@ const Classifieds = () => {
 					{ 
 						classifieds.comments.length ? classifieds.comments.map(c => (
 							<li className="comments_item" key={c.comment_id}>
-								<p className="user_username">{c.user_username}</p>
-								<p>{c.comment_body}</p>
+								<div>
+									{
+										c.user_path ?
+										<img className="user_img" src={`${ADDRESS}/images/` + c.user_path} alt="user img" width="50" height="50"/>
+										:
+										<span className="no_userImg"><FaUserCircle size={50} /></span>
+									}
+								</div>
+								<div className="comment-user">
+									<p className="user_username">{c.user_username}</p>
+									<p>{c.comment_body}</p>
+									<p className="time_comment">{moment(c.created_at).format('DD-MMM HH:MM')}</p>
+								</div>
 							</li>
 							))
 							: <li className="no_comment">No comment yet</li>

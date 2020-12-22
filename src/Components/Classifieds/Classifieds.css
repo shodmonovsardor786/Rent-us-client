@@ -71,12 +71,12 @@
     position: relative;
     width: 80%;
     padding: 0;
-    margin: 10px auto;
+    margin: 20px auto;
     background-color: #fff;
-    border: 1px solid #aaa;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: .3s;
+    box-shadow: 0 0 10px #aaa;
 }
 
 
@@ -662,7 +662,6 @@
 @media (max-width: 500px) {
     .classified_item {
         width: 95%;
-        margin: 5px auto;
     }
     .classified_content__modal {
         margin: 10px auto;
